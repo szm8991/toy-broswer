@@ -1,0 +1,58 @@
+{
+  "name": "toy-browser",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@7.1.7",
+  "description": "",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "release": "bumpp --commit --push --tag && npm publish",
+    "start": "esno src/index.ts",
+    "start:s": "esno src/server.ts",
+    "start:c": "esno src/client.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.25.2",
+    "@antfu/ni": "^0.16.2",
+    "@types/node": "^17.0.35",
+    "bumpp": "^7.1.1",
+    "eslint": "^8.16.0",
+    "esno": "^0.16.3",
+    "pnpm": "^7.1.5",
+    "typescript": "^4.7.4",
+    "unbuild": "^0.7.4",
+    "vite": "^2.9.9",
+    "vitest": "^0.12.9"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
