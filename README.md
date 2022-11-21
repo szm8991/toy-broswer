@@ -5,4 +5,5 @@
 ## todo
 
 - use tcp(node:net) construct and parse http requset&response [x]
-- use parse html element [x]
+- parse html element [x]
+- parse css rules and add them to html element [x]
