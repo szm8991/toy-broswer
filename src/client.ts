@@ -1,5 +1,9 @@
 import net, { Socket } from 'node:net'
-enum responseStatus {
+import { parseHTML } from './parser.js' // for ts debug https://github.com/microsoft/TypeScript/issues/16577
+// import { parseHTML } from './parser'
+import { RequestConfig, Response } from './type'
+
+const enum responseStatus {
   WAITING_STATUS_LINE = 0,
   WAITING_STATUS_LINE_END = 1,
   WAITING_HEADER_NAME = 2,
@@ -10,7 +14,7 @@ enum responseStatus {
   WAITING_BODY = 7,
 }
 
-enum bodyTrunkStatus {
+const enum bodyTrunkStatus {
   WAITING_LENGTH = 0,
   WAITING_LENGTH_LINE_END = 1,
   READING_TRUNK = 2,
@@ -18,22 +22,6 @@ enum bodyTrunkStatus {
   WAITING_NEW_LINE_END = 4,
 }
 
-interface RequestConfig<D = any> {
-  url?: string
-  method?: Method | string
-  host: string
-  port?: number
-  path?: string
-  headers?: Record<string, string>
-  body?: Record<string, string>
-  data?: D
-}
-interface Response<T = any> {
-  data: T
-  status: number
-  statusText: string
-  headers?: Record<string, string>
-}
 class Request {
   public method: string
   public host: string
@@ -61,7 +49,7 @@ class Request {
     }
     this.headers['Content-Length'] = this.bodyText?.length
   }
-  send(connection?: Socket) {
+  send(connection?: Socket): Promise<Response> {
     return new Promise((resolve, reject) => {
       const parser = new ResponsePraser()
       if (connection) {
@@ -83,6 +71,7 @@ class Request {
         // console.log('----------------------------------')
         // console.log(data.toString())
         parser.receive(data.toString())
+        // console.log(parser)
         if (parser.isFinished) {
           resolve(parser.response)
           connection!.end()
@@ -195,7 +184,7 @@ class TrunkedBodyParser {
     }
   }
 }
-void (async function send() {
+void (async function () {
   const request = new Request({
     method: 'POST',
     host: '127.0.0.1',
@@ -210,5 +199,6 @@ void (async function send() {
   // console.log(request)
   // console.log(request.toString())
   const response = await request.send()
-  console.log(response)
+  // console.log(response)
+  const dom = parseHTML(response.body)
 })()
