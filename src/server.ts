@@ -10,15 +10,14 @@ export const html = `<html lang="en">
       width: 50px;
       padding-top: 20px;
       padding-bottom: 20px;
-      text-align: center;
     }
     body div img{
       width: 75px;
-      color: white;
-      background-color: #ff1111;
     }
     body .demo {
-      width: 100px
+      width: 100px;
+      font: 16px;
+      font-size: 1.2;
     }
   </style>
 </head>

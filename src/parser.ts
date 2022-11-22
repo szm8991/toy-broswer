@@ -1,6 +1,7 @@
 import { Attribute, HTMLElement, HTMLToken } from './type'
 // @ts-ignore
 import * as csstree from 'css-tree'
+import { layout } from './layout'
 
 const EOF = Symbol('EOF') // EOF: End of File
 let currentToken: HTMLToken | null = null
@@ -45,6 +46,7 @@ function emit(token: HTMLToken) {
       if (token.tagName === 'style') {
         addCSSRules(top.children![0].content!)
       }
+      layout(top)
       stack.pop()
     }
     currentTextNode = null
@@ -59,6 +61,7 @@ function emit(token: HTMLToken) {
     currentTextNode.content += token.content!
   }
 }
+
 function computeCSS(element: HTMLElement) {
   // 获取父元素序列
   const elements = stack.slice().reverse()
@@ -105,10 +108,10 @@ function computeCSS(element: HTMLElement) {
       }
     }
   }
-  console.log(
-    element.tagName,
-    Object.keys(element.computedStyle).map(key => `${key} `)
-  )
+  // console.log(
+  //   element.tagName,
+  //   Object.keys(element.computedStyle).map(key => `${key}`)
+  // )
 }
 
 // count css specificity
@@ -311,6 +314,7 @@ function selfClosingStartTag(char: string | typeof EOF) {
   } else {
   }
 }
+
 export function parseHTML(html: string) {
   let state = data
   try {

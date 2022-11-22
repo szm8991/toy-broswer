@@ -36,7 +36,9 @@ export type HTMLElement = {
   attributes?: Attribute[]
   tagName?: string
   content?: string
+  order?: number
   computedStyle?: Record<string, Record<string, string>>
+  layoutStyle?: Record<string, string | number | null>
 }
 
 export type Attribute = {
