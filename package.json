@@ -53,6 +53,6 @@
     "vitest": "^0.12.9"
   },
   "dependencies": {
-    "ts-node": "^10.9.1"
+    "css-tree": "^2.2.1"
   }
 }

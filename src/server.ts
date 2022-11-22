@@ -6,22 +6,33 @@ export const html = `<html lang="en">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <style>
-    .demo {
+    body div #id {
+      width: 50px;
       padding-top: 20px;
       padding-bottom: 20px;
       text-align: center;
     }
+    body div img{
+      width: 75px;
+      color: white;
+      background-color: #ff1111;
+    }
+    body .demo {
+      width: 100px
+    }
   </style>
 </head>
 <body>
-  <div class="demo" style data-set >
-    demo
+  <h1>Hello Toy Browser!</h1>
+  <div class="demo" >
+    <img id="id" />
+    <img style />
   </div>
   <script>
       function p2() {
         console.log('p2');
       }
-    </script>
+  </script>
 </body>
 </html>`
 http

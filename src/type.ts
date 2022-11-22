@@ -35,11 +35,8 @@ export type HTMLElement = {
   children?: HTMLElement[]
   attributes?: Attribute[]
   tagName?: string
-}
-
-export type TextNode = {
-  type: string
   content?: string
+  computedStyle?: Record<string, Record<string, string>>
 }
 
 export type Attribute = {
