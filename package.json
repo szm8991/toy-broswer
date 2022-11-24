@@ -53,6 +53,7 @@
     "vitest": "^0.12.9"
   },
   "dependencies": {
+    "@types/css-tree": "^2.0.0",
     "css-tree": "^2.2.1"
   }
 }

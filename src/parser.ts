@@ -1,7 +1,6 @@
 import { Attribute, HTMLElement, HTMLToken } from './type'
-// @ts-ignore
 import * as csstree from 'css-tree'
-import { layout } from './layout'
+import { layout } from './layout.js'
 
 const EOF = Symbol('EOF') // EOF: End of File
 let currentToken: HTMLToken | null = null
@@ -136,6 +135,8 @@ function compare(sp1: any, sp2: any) {
 let rules: any = []
 function addCSSRules(text: string) {
   const ast = csstree.parse(text)
+  // console.log(JSON.stringify(ast))
+  // @ts-ignore
   rules.push(...JSON.parse(JSON.stringify(ast.children)))
 }
 
