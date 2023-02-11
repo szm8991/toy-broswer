@@ -31,7 +31,6 @@
     "build": "unbuild",
     "dev": "unbuild --stub",
     "release": "bumpp --commit --push --tag && npm publish",
-    "start": "esno src/index.ts",
     "start:s": "esno src/server.ts",
     "start:c": "esno src/client.ts",
     "test": "vitest",
@@ -54,6 +53,7 @@
   },
   "dependencies": {
     "@types/css-tree": "^2.0.0",
-    "css-tree": "^2.2.1"
+    "css-tree": "^2.2.1",
+    "images": "^3.2.4"
   }
 }

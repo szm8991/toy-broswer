@@ -339,7 +339,7 @@ export function layout(element: HTMLElement) {
         //   ? lineCrossSize
         //   : 0
         // @ts-ignore
-        itemStyle[crossSize] = crossSign * (itemStyle[crossEnd] - itemStyle[crossStart])
+        if(!itemStyle[crossSize]) itemStyle[crossSize] = crossSign * (itemStyle[crossEnd] - itemStyle[crossStart])
       }
     }
 

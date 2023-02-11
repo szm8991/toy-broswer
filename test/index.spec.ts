@@ -1,6 +1,6 @@
-import { describe, it, expect } from 'vitest'
-import { stack, parseHTML } from '../src/parser'
-import { html2, html } from '../src/server'
+import { describe, expect, it } from 'vitest'
+import { parseHTML, stack } from '../src/parser'
+import { html2 } from '../src/server'
 describe('test', () => {
   it('test', () => {
     parseHTML(html2)

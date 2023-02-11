@@ -12,6 +12,7 @@ importers:
       css-tree: ^2.2.1
       eslint: ^8.16.0
       esno: ^0.16.3
+      images: ^3.2.4
       pnpm: ^7.1.5
       typescript: ^4.7.4
       unbuild: ^0.7.4
@@ -20,6 +21,7 @@ importers:
     dependencies:
       '@types/css-tree': registry.npmmirror.com/@types/css-tree/2.0.0
       css-tree: registry.npmmirror.com/css-tree/2.2.1
+      images: registry.npmmirror.com/images/3.2.4
     devDependencies:
       '@antfu/eslint-config': registry.npmmirror.com/@antfu/eslint-config/0.25.2_b5e7v2qnwxfo6hmiq56u52mz3e
       '@antfu/ni': registry.npmmirror.com/@antfu/ni/0.16.3
@@ -2586,6 +2588,13 @@ packages:
     version: 5.2.0
     engines: {node: '>= 4'}
     dev: true
+
+  registry.npmmirror.com/images/3.2.4:
+    resolution: {integrity: sha512-Uq61/Q8XixCRyKvws7tPwboK0O70Dbr4kMQZHw2dqdEhnU6TpaGwyMg0vzQ4aaGtrO9N3etq46XwF7hxbqp8ug==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/images/-/images-3.2.4.tgz}
+    name: images
+    version: 3.2.4
+    requiresBuild: true
+    dev: false
 
   registry.npmmirror.com/import-fresh/3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/import-fresh/-/import-fresh-3.3.0.tgz}

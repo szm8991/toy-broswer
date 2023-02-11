@@ -1,6 +1,6 @@
-import { Attribute, HTMLElement, HTMLToken } from './type'
 import * as csstree from 'css-tree'
 import { layout } from './layout.js'
+import { Attribute, HTMLElement, HTMLToken } from './type'
 
 const EOF = Symbol('EOF') // EOF: End of File
 let currentToken: HTMLToken | null = null
@@ -329,5 +329,5 @@ export function parseHTML(html: string) {
     console.error(error)
   }
   // console.log(stack[0])
-  return stack
+  return stack[0]
 }

@@ -60,8 +60,8 @@ export const html2 = `<html lang="en">
 </head>
 <body>
   <div class="container" >
-    <div id="id" />
-    <div class="ccc" />
+    <div id="id"></div>
+    <div class="ccc"></div>
   </div>
 </body>
 </html>`

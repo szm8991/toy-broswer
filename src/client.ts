@@ -1,8 +1,8 @@
-import net, { Socket } from 'node:net'
-import { parseHTML } from './parser.js' // for ts debug https://github.com/microsoft/TypeScript/issues/16577
+import net, { Socket } from 'node:net';
+import { parseHTML } from './parser.js'; // for ts debug https://github.com/microsoft/TypeScript/issues/16577
 // import { parseHTML } from './parser'
-import { RequestConfig, Response } from './type'
-
+import { createViewport, render } from './render.js';
+import { RequestConfig, Response } from './type';
 const enum responseStatus {
   WAITING_STATUS_LINE = 0,
   WAITING_STATUS_LINE_END = 1,
@@ -201,4 +201,7 @@ void (async function () {
   const response = await request.send()
   // console.log(response)
   const dom = parseHTML(response.body)
+  const viewport=createViewport(800,600)
+  render(viewport,dom)
+  viewport.save('res.jpg')
 })()
